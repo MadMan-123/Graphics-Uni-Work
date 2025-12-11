@@ -351,19 +351,22 @@ static void handleCameraInput(f32 dt)
         camera.pos.y -= camMoveSpeed * dt;
 
     // Mouse look (hold right mouse button)
-    if (isMouseDown(MOUSE_RIGHT))
+    if (isMouseDown(SDL_BUTTON_RIGHT))
     {
-        f32 mouseX, mouseY;
-        getMouseDelta(&mouseX, &mouseY);
+        // Get the mouse delta
+        f32 x, y;
+        getMouseDelta(&x, &y);
 
-        currentYaw += -mouseX * camRotateSpeed * dt;
-        currentPitch += -mouseY * camRotateSpeed * dt;
+        // apply the mouse delta to the camera
+        currentYaw += -x * (camRotateSpeed)*dt;
+        currentPitch += -y * (camRotateSpeed)*dt;
 
+        // 89 in radians
+        f32 goal = radians(89.0f);
         // Clamp pitch to avoid gimbal lock
-        f32 maxPitch = radians(89.0f);
-        currentPitch = clamp(currentPitch, -maxPitch, maxPitch);
+        currentPitch = clamp(currentPitch, -goal, goal);
 
-        // Create orientation quaternion
+        // Create yaw quaternion based on the world-up vector
         Vec4 yawQuat = quatFromAxisAngle(v3Up, currentYaw);
         Vec4 pitchQuat = quatFromAxisAngle(v3Right, currentPitch);
         camera.orientation = quatNormalize(quatMul(yawQuat, pitchQuat));
