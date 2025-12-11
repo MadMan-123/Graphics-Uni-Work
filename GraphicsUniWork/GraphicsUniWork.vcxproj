@@ -156,13 +156,13 @@ xcopy /Y /E /I "$(ProjectDir)res" "$(OutDir)..\res"</Command>
     <None Include="res\eMapping.vert" />
     <None Include="res\FBOShader.frag" />
     <None Include="res\FBOShader.vert" />
+    <None Include="res\Geo.frag" />
+    <None Include="res\Geo.geom" />
+    <None Include="res\Geo.vert" />
     <None Include="res\Glow.frag" />
     <None Include="res\Glow.vert" />
     <None Include="res\shader.frag" />
     <None Include="res\shader.vert" />
-    <None Include="res\shaderGeoText.frag" />
-    <None Include="res\shaderGeoText.geom" />
-    <None Include="res\shaderGeoText.vert" />
     <None Include="res\Skybox.frag" />
     <None Include="res\Skybox.vert" />
   </ItemGroup>

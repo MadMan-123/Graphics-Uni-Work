@@ -1,20 +1,20 @@
 ﻿  main.cpp
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(364,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(365,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(390,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(391,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
   GraphicsUniWork.vcxproj -> C:\Dev\GraphicsUniWork\x64\Debug\GraphicsUniWork.exe
   0 File(s) copied
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.geom
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\monkey3.obj
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.vert
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shaderGeoText.frag
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shaderGeoText.geom
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shaderGeoText.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Duck Model.fbx

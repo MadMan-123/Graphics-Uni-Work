@@ -26,9 +26,9 @@ layout(std140) uniform CoreShaderData {
 vec4 explode(vec4 position, vec3 normal)
 {
 //Amout of explosion
-    float magnitude = 5.0;
+    float magnitude = 1.0;
 	//Direction of explosion, going along normal
-    vec3 direction = normal * ((sin(time) + 1.0) / 2.0) * magnitude; 
+    vec3 direction = normal * ((sin(time/100) + 1.0) / 2.0) * magnitude; 
 	//Returning position
     return position + vec4(direction, 0.0);
 }

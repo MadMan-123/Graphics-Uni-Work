@@ -41,9 +41,24 @@ void render(f32 dt);
 // Forward declarations
 static void handleCameraInput(f32 dt);
 
-Model* monkeyModel = NULL;
-u32 defaultShader = 0;
-u32 lavaTexture = 0;
+//models
+Model* duckModel = NULL;
+Model* shieldModel = NULL;
+
+//shaders
+u32 enviromentShader = 0;
+u32 geometryShader = 0;
+
+//textures
+u32 metalTexture = 0;
+u32 shieldTexture = 0;
+
+
+Transform modelTransforms[3] = {
+    {{0.0f, 0.0f, 0.0f}, quatIdentity(), v3Scale(v3One,0.1f)},
+    {{2.0f, 0.0f, 0.0f}, quatMul(quatIdentity() ,quatFromEuler({90,0,0})), v3One},
+    {{0.0f, 0.0f, 0.0f}, quatIdentity(), v3One}
+};
 
 void init()
 {
@@ -121,19 +136,27 @@ void init()
     postProcessFBO = createFramebuffer(windowWidth, windowHeight, GL_RGBA8, false);
 
     //Get model data 
-    u32 monkeyID = 0;
-    findInMap(&resources->modelIDs,"Duck Model.fbx",&monkeyID);
-    monkeyModel = &resources->modelBuffer[monkeyID];
+    u32 duckID = 0;
+    findInMap(&resources->modelIDs,"Duck Model.fbx",&duckID);
+    duckModel = &resources->modelBuffer[duckID];
 
-    //Get default shader
-    u32 defaultShaderID = 0;
-    findInMap(&resources->shaderIDs,"eMapping",&defaultShaderID);
-    defaultShader = resources->shaderHandles[defaultShaderID];
+    u32 sheildID = 0;
+    findInMap(&resources->modelIDs,"Shield_Crusader.fbx",&sheildID);
+	shieldModel = &resources->modelBuffer[sheildID];
 
-    //Get lava texture
-    u32 lavaTextureID = 0;
-    findInMap(&resources->textureIDs, "metal.jpg", &lavaTextureID);
-    lavaTexture = resources->textureHandles[lavaTextureID];
+    //Get shaders
+    u32 envShaderID = 0;
+    findInMap(&resources->shaderIDs,"eMapping",&envShaderID);
+    enviromentShader = resources->shaderHandles[envShaderID];
+
+    u32 geomShaderID = 0;
+    findInMap(&resources->shaderIDs,"Geo",&geomShaderID);
+    geometryShader = resources->shaderHandles[geomShaderID];
+
+    //Get textures
+    u32 metalTextureID = 0;
+    findInMap(&resources->textureIDs, "metal.jpg", &metalTextureID);
+    metalTexture = resources->textureHandles[metalTextureID];
     INFO("Initialization complete!");
 }
 
@@ -173,6 +196,24 @@ void renderSkybox()
 
 }
 
+void mainRenderPass()
+{
+    glUseProgram(enviromentShader);
+
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, metalTexture);
+    glUniform1i(glGetUniformLocation(enviromentShader, "albedoTexture"), 1);
+
+    updateShaderMVP(enviromentShader, modelTransforms[0], camera);
+    draw(duckModel, enviromentShader,false);
+
+    //Geom shader
+    glUseProgram(geometryShader);
+    updateShaderMVP(geometryShader, modelTransforms[1], camera);
+    draw(shieldModel, geometryShader,true);
+
+}
+
 void render(f32 dt)
 {
     //update core UBO
@@ -198,23 +239,8 @@ void render(f32 dt)
     glDepthMask(GL_TRUE);
     glDepthFunc(GL_LESS);
 
-    Transform modelTransform = {{0.0f, 0.0f, 0.0f}, quatIdentity(), v3One};
 
-    glUseProgram(defaultShader);
-
-    // Bind cubemap to unit 0 for skybox sampler
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_CUBE_MAP, cubeMapTexture);
-    glUniform1i(glGetUniformLocation(defaultShader, "skybox"), 0);
-
-    // Bind lava texture to unit 1 for albedoTexture sampler
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, lavaTexture);
-    glUniform1i(glGetUniformLocation(defaultShader, "albedoTexture"), 1);
-
-    updateShaderMVP(defaultShader, modelTransform, camera);
-    draw(monkeyModel, defaultShader,false);
-    
+    mainRenderPass();
 
     unbindFramebuffer();
 
