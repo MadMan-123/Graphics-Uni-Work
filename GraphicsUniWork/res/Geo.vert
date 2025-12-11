@@ -11,7 +11,7 @@ out VS_OUT {
 } vs_out;
 
 //Uniform variable
-uniform mat4 transform;
+uniform mat4 model;
 
 
 //Passing out the normal and position data
@@ -22,9 +22,9 @@ void main()
 {
 	//Assigning the normal and position data
 	v_norm = VertexNormal;
-	v_pos = vec4(VertexPosition, 1.0);
+	v_pos = vec4(VertexPosition, 0.0);
 
 	vs_out.texCoords = TexCoord;
-	// Sets the position of the current vertex
-	gl_Position = transform * vec4(VertexPosition, 1.0);
+	// Pass world-space position to geometry shader (model only, not MVP)
+	gl_Position = model * vec4(VertexPosition, 1.0);
 }

@@ -13,7 +13,9 @@ in VS_OUT {
 //Passing out texture coordinates
 out vec2 TexCoords; 
 
-// Core shader data (time + viewProj) provided via UBO
+// View-Projection matrix to apply after explosion
+uniform mat4 viewProj;
+
 layout(std140) uniform CoreShaderData {
     vec3 camPos; 
     float time;
@@ -36,8 +38,8 @@ vec4 explode(vec4 position, vec3 normal)
 vec3 GetNormal()
 {
 //Getting the normal vector of each vertex
-   vec3 a = vec3(gl_in[0].gl_Position) - vec3(gl_in[1].gl_Position);
-   vec3 b = vec3(gl_in[2].gl_Position) - vec3(gl_in[1].gl_Position);
+   vec3 a = vec3(gl_in[1].gl_Position) - vec3(gl_in[0].gl_Position);
+   vec3 b = vec3(gl_in[2].gl_Position) - vec3(gl_in[0].gl_Position);
    //returns the cross product between the two vectors calculated
    return normalize(cross(a, b));
 }
@@ -46,14 +48,14 @@ void main()
 {
 //Getting normal
     vec3 normal = GetNormal();
-//Setting current vertex position
-    gl_Position = explode(gl_in[0].gl_Position, normal);
+//Setting current vertex position - apply viewProj after explosion
+    gl_Position = viewProj * explode(gl_in[0].gl_Position, normal);
     TexCoords = gs_in[0].texCoords;
     EmitVertex();
-    gl_Position = explode(gl_in[1].gl_Position, normal);
+    gl_Position = viewProj * explode(gl_in[1].gl_Position, normal);
     TexCoords = gs_in[1].texCoords;
     EmitVertex();
-    gl_Position = explode(gl_in[2].gl_Position, normal);
+    gl_Position = viewProj * explode(gl_in[2].gl_Position, normal);
     TexCoords = gs_in[2].texCoords;
     EmitVertex();
     EndPrimitive();

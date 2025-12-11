@@ -40,7 +40,6 @@ void render(f32 dt);
 
 // Forward declarations
 static void handleCameraInput(f32 dt);
-
 //models
 Model* duckModel = NULL;
 Model* shieldModel = NULL;
@@ -191,7 +190,6 @@ void renderSkybox()
     glBindVertexArray(0);
 
     unbindFramebuffer();
-
 }
 
 void mainRenderPass()
@@ -205,8 +203,12 @@ void mainRenderPass()
     updateShaderMVP(enviromentShader, modelTransforms[0], camera);
     draw(duckModel, enviromentShader,false);
 
+
     //Geom shader
     glUseProgram(geometryShader);
+   
+    Mat4 vp = getViewProjection(&camera);    
+    glUniformMatrix4fv(glGetUniformLocation(geometryShader,"viewProj"), 1, GL_FALSE, &vp.m[0][0]);
     updateShaderMVP(geometryShader, modelTransforms[1], camera);
     draw(shieldModel, geometryShader,true);
 
