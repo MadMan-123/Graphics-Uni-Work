@@ -1,24 +1,40 @@
 ﻿  main.cpp
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(298,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(299,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(364,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(365,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
   GraphicsUniWork.vcxproj -> C:\Dev\GraphicsUniWork\x64\Debug\GraphicsUniWork.exe
   0 File(s) copied
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\monkey3.obj
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shaderGeoText.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shaderGeoText.geom
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shaderGeoText.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.vert
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\back.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Duck Model.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\monkey3.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Pole_Warhammer.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Shield_Crusader.fbx
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\back.png
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\bottom.jpg
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\bottom.png
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\front.jpg
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\front.png
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\left.jpg
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\left.png
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\right.jpg
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\right.png
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\top.jpg
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\top.png
-  18 File(s) copied
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\bricks.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Chain_Alpha.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Chain_Difuse.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\desert.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\lava.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\lava1.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\lava3.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\metal.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Weapons_01_textures.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Weapons_02_textures.png
+  34 File(s) copied

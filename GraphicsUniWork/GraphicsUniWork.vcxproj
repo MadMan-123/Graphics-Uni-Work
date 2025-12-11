@@ -152,12 +152,22 @@ xcopy /Y /E /I "$(ProjectDir)res" "$(OutDir)..\res"</Command>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\eMapping.frag" />
+    <None Include="res\eMapping.vert" />
     <None Include="res\FBOShader.frag" />
     <None Include="res\FBOShader.vert" />
+    <None Include="res\Glow.frag" />
+    <None Include="res\Glow.vert" />
     <None Include="res\shader.frag" />
     <None Include="res\shader.vert" />
+    <None Include="res\shaderGeoText.frag" />
+    <None Include="res\shaderGeoText.geom" />
+    <None Include="res\shaderGeoText.vert" />
     <None Include="res\Skybox.frag" />
     <None Include="res\Skybox.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\druid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

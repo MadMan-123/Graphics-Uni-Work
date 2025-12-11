@@ -111,7 +111,7 @@ void main()
     
     
    
-    vec4 color = pixelateTexture(TexCoords, 850);
+    vec4 color = pixelateTexture(TexCoords, 512);
     color = quantize(color, 16.0, true);
 
 

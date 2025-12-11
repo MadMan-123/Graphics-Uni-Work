@@ -38,5 +38,31 @@
     <None Include="res\Skybox.vert">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="res\eMapping.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\eMapping.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Glow.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\Glow.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shaderGeoText.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shaderGeoText.geom">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\shaderGeoText.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\druid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

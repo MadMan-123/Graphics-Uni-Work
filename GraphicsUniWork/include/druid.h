@@ -307,6 +307,7 @@ extern "C"
 
     typedef struct
     {
+        void *data;
         u32 size;
         u32 used;
     } Arena;
@@ -831,7 +832,8 @@ extern "C"
         u32 meshCount;        // how many meshes are in the buffer
         u32 materialCount;    // how many materials are in the buffer
     } Model;
-    DAPI void draw(Model *model, u32 shader);
+    DAPI void draw(Model *model, u32 shader, bool shouldUpdateMaterials);
+
 
     // resource manager
     typedef struct
