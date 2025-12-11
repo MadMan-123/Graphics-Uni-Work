@@ -1,0 +1,24 @@
+﻿  main.cpp
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(298,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(299,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+  GraphicsUniWork.vcxproj -> C:\Dev\GraphicsUniWork\x64\Debug\GraphicsUniWork.exe
+  0 File(s) copied
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\back.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\back.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\bottom.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\bottom.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\front.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\front.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\left.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\left.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\right.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\right.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\top.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\top.png
+  18 File(s) copied
