@@ -16,6 +16,8 @@
 
 # Debugger Files
 *.pdb
+*.idb
+*.dwo
 
 # Compiled Dynamic libraries
 *.so
@@ -36,6 +38,40 @@
 *.exe
 *.out
 *.app
+*.exp
 
-# debug information files
-*.dwo
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Intermediate / Caches
+ipch/
+*.ipch
+*.VC.db
+*.VC.VC.opendb
+*.opendb
+*.tlog
+*.lastcodeanalysissucceeded
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS crap
+.DS_Store
+Thumbs.db
