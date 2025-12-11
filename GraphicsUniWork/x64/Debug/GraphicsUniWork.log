@@ -1,6 +1,6 @@
 ﻿  main.cpp
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(390,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(391,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(388,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(389,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
   GraphicsUniWork.vcxproj -> C:\Dev\GraphicsUniWork\x64\Debug\GraphicsUniWork.exe
   0 File(s) copied
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.frag

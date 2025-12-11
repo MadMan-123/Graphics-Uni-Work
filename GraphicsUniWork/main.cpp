@@ -51,8 +51,6 @@ u32 geometryShader = 0;
 
 //textures
 u32 metalTexture = 0;
-u32 shieldTexture = 0;
-
 
 Transform modelTransforms[3] = {
     {{0.0f, 0.0f, 0.0f}, quatIdentity(), v3Scale(v3One,0.1f)},
