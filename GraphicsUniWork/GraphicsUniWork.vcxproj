@@ -149,6 +149,7 @@ xcopy /Y /E /I "$(ProjectDir)res" "$(OutDir)..\res"</Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GBuffer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -156,17 +157,24 @@ xcopy /Y /E /I "$(ProjectDir)res" "$(OutDir)..\res"</Command>
     <None Include="res\eMapping.vert" />
     <None Include="res\FBOShader.frag" />
     <None Include="res\FBOShader.vert" />
+    <None Include="res\GBuffer.frag" />
+    <None Include="res\GBuffer.vert" />
     <None Include="res\Geo.frag" />
     <None Include="res\Geo.geom" />
     <None Include="res\Geo.vert" />
     <None Include="res\Glow.frag" />
     <None Include="res\Glow.vert" />
+    <None Include="res\Lighting.frag" />
+    <None Include="res\Lighting.vert" />
+    <None Include="res\LightingSphere.frag" />
+    <None Include="res\LightingSphere.vert" />
     <None Include="res\shader.frag" />
     <None Include="res\shader.vert" />
     <None Include="res\Skybox.frag" />
     <None Include="res\Skybox.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GBuffer.h" />
     <ClInclude Include="include\druid.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

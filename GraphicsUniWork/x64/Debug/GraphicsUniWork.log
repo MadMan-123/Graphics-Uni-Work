@@ -1,26 +1,35 @@
 ﻿  main.cpp
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(393,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
-C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(394,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(726,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(727,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
   GraphicsUniWork.vcxproj -> C:\Dev\GraphicsUniWork\x64\Debug\GraphicsUniWork.exe
   0 File(s) copied
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\GBuffer.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\GBuffer.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.geom
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.vert
-  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\monkey3.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Lighting.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Lighting.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\LightingSphere.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\LightingSphere.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.vert
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.frag
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Ball.obj
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Duck Model.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\HighPolyMan.obj
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\monkey3.obj
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Pole_Warhammer.fbx
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Shield_Crusader.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Skull.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\sphere.obj
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\back.png
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\bottom.png
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\front.png
@@ -37,4 +46,4 @@ C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(394,19): warning C4244: '=': con
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\metal.jpg
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Weapons_01_textures.png
   C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Weapons_02_textures.png
-  34 File(s) copied
+  43 File(s) copied
