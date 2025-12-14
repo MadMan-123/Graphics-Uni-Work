@@ -63,13 +63,12 @@ void main()
 	vec3 fresnel = fresnelSchlick(cosV, F0);
 
 	// accumulate per-light contributions
-	// shininess controls specular tightness based on smoothness
 	float shininess = mix(8.0, 256.0, clamp(smoothness, 0.0, 1.0));
 	for(int i = 0; i < LIGHTS; ++i)
 	{
 		//work out distance
 
-	float distance = length(lightPositions[i] - FragPos);
+		float distance = length(lightPositions[i] - FragPos);
 
 		if(distance < lightRadii[i])
 		{
@@ -88,7 +87,7 @@ void main()
 
 			float li = lightIntensity[i];
 
-			vec3 diffuse  = diff       * Albedo   * lightColours[i] * attenuation * li;
+			vec3 diffuse  = diff * Albedo * lightColours[i] * attenuation * li;
 		    vec3 specular = specFactor * Specular * lightColours[i] * attenuation * li;
 
 			lighting += diffuse + specular;

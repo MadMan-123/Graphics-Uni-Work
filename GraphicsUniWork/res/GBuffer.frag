@@ -12,19 +12,14 @@ in vec3 FragPos;
 uniform sampler2D diffuse;
 uniform sampler2D specular;
 
-
-
 void main()
 {		
-	//store frag position vector in gPosition texture
-	gPosition = FragPos;
-	//also store the per-fragment normals into gNormal texture
-	gNormal = normalize(Normal);
-	//and the diffuse per-fragment color
-	vec4 texColor = texture(diffuse, tc);
-	gAlbedoSpec.rgb = texColor.rgb;
+    gPosition = FragPos;
+    gNormal = normalize(Normal);
     
-	//store specular intensity in gAlbedoSpec alpha channel
-	gAlbedoSpec.a = texture(specular, tc).r;
-
+    vec4 texColor = texture(diffuse, tc);
+    
+	//gAlbedoSpec.rgb = pow(texColor.rgb, vec3(2.2));
+	gAlbedoSpec.rgb = texColor.rgb;
+    gAlbedoSpec.a = texture(specular, tc).r;
 }

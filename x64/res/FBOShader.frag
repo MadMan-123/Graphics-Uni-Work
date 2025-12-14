@@ -5,12 +5,47 @@ in vec2 TexCoords;
 
 uniform sampler2D screenTexture;
 
+uniform bool applyToneMapping = true;
+const bool doQuantize = true;        
+const bool doPixelate = true;       
+const float exposure = 0.9; 
+const float gamma = 2.2;
+const float pixelSize = 512.0;        // pixelation scale factor (the steps of pixelation) 
+const float quantLevels = 16.0;       
+layout(std140) uniform CoreShaderData {
+    vec3 camPos;
+    float time;
+} CSD;
+
 vec4 applyGreyScale(vec4 color)
 {
     float average = 0.2126 * color.r + 0.7152 * color.g + 0.0722 * color.b;
     return vec4(average, average, average, 1.0);
 }
 
+vec3 toneMapReinhard(vec3 hdr)
+{
+    return hdr / (hdr + vec3(1.0));
+}
+
+vec3 toneMapExposure(vec3 hdr)
+{
+	return vec3(1.0) - exp(-hdr * exposure);
+}
+
+void applyHDR(inout vec4 color)
+{
+    // Assume input is linear HDR. Apply exposure first.
+    vec3 hdr = color.rgb;
+    
+    vec3 mapped = toneMapExposure(hdr);
+    // Reinhard tone-mapping in linear space
+    //vec3 mapped = toneMapReinhard(hdr);
+
+    mapped = pow(mapped, vec3(1.0 / gamma));
+
+    color = vec4(mapped, 1.0);
+}
 
 //PSX Rendering techniques:
 
@@ -109,11 +144,13 @@ void main()
 
     // vec4 color = edgeDetect(sampleTex, 9.0);
     
-    
-   
-    vec4 color = pixelateTexture(TexCoords, 512);
-    color = quantize(color, 16.0, true);
+    vec4 color = doPixelate ? pixelateTexture(TexCoords, pixelSize) : texture(screenTexture, TexCoords);
 
+    if (applyToneMapping) {
+        applyHDR(color);
+    }
+
+    if (doQuantize) color = quantize(color, quantLevels, true);
 
     FragColor = color;
 

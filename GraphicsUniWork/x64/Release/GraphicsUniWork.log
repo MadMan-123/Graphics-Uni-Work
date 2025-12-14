@@ -1,31 +1,57 @@
-﻿  GBuffer.c
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(49,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(49,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(49,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(50,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(50,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(50,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(51,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(51,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(51,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(52,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(52,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(52,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(54,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(54,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(54,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(55,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(55,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(55,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(56,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(56,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(56,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(57,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(57,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(57,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(59,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(59,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(59,1): error C2059: syntax error: 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(60,1): error C2143: syntax error: missing ')' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(60,1): error C2143: syntax error: missing '{' before 'sizeof'
-C:\Dev\GraphicsUniWork\GraphicsUniWork\include\druid.h(60,1): error C2059: syntax error: 'sizeof'
+﻿  GBuffer.cpp
+  main.cpp
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(725,18): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+C:\Dev\GraphicsUniWork\GraphicsUniWork\main.cpp(726,19): warning C4244: '=': conversion from 'u32' to 'f32', possible loss of data
+  Generating code
+  14 of 18 functions (77.8%) were compiled, the rest were copied from previous compilation.
+    9 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  GraphicsUniWork.vcxproj -> C:\Dev\GraphicsUniWork\x64\Release\GraphicsUniWork.exe
+  0 File(s) copied
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\eMapping.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\FBOShader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\GBuffer.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\GBuffer.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.geom
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Geo.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Glow.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Lighting.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Lighting.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\LightingSphere.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\LightingSphere.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\shader.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.frag
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox.vert
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Ball.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Duck Model.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\HighPolyMan.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\monkey3.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Pole_Warhammer.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\REVOLVER.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Shield_Crusader.fbx
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\Skull.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Models\sphere.obj
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\back.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\bottom.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\front.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\left.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\right.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Skybox\top.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\bricks.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Chain_Alpha.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Chain_Difuse.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\desert.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\lava.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\lava1.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\lava3.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\metal.jpg
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Weapons_01_textures.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\Weapons_02_textures.png
+  C:\Dev\GraphicsUniWork\GraphicsUniWork\res\Textures\western.png
+  45 File(s) copied

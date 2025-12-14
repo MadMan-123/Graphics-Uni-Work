@@ -80,6 +80,7 @@ static i32 gBufferDiffuseLoc = -1;
 static i32 gBufferSpecularLoc = -1;
 // FBO shader uniform
 static i32 fboScreenTextureLoc = -1;
+static i32 fboApplyToneMappingLoc = -1;
 // Lighting shader uniforms
 static i32 gPositionLoc = -1;
 static i32 gNormalLoc = -1;
@@ -119,7 +120,6 @@ void init()
         LightingRadii[i] = randRadius;
     }
 
-
     initCamera(&camera,
         { 0.0f, 0.0f, 5.0f },  // position
         FOV,               // FOV
@@ -148,6 +148,7 @@ void init()
         ERROR("Failed to create skybox mesh!");
         return;
     }
+
 
     // get the shader from resource manager
     u32 skyboxID = 0;
@@ -206,11 +207,11 @@ void init()
     // Skybox FBO 
     skyboxFBO = createFramebuffer(windowWidth, windowHeight, GL_RGBA8, false);
 
-    // Main scene FBO with depth buffer 
-    mainFBO = createFramebuffer(windowWidth, windowHeight, GL_RGBA8, true);
+    // Main scene FBO with depth buffer
+    mainFBO = createFramebuffer(windowWidth, windowHeight, GL_RGBA16F, true);
 
-    // Post-process FBO 
-    postProcessFBO = createFramebuffer(windowWidth, windowHeight, GL_RGBA8, false);
+    // Post-process FBO
+    postProcessFBO = createFramebuffer(windowWidth, windowHeight, GL_RGBA16F, false);
 
     //Get model data 
     u32 duckID = 0;
@@ -252,7 +253,10 @@ void init()
     }
 
     if (fboShader != 0)
-        fboScreenTextureLoc = glGetUniformLocation(fboShader, "screenTexture");
+        {
+            fboScreenTextureLoc = glGetUniformLocation(fboShader, "screenTexture");
+            fboApplyToneMappingLoc = glGetUniformLocation(fboShader, "applyToneMapping");
+        }
 
     if (gBufferLightingShader != 0) {
         gPositionLoc = glGetUniformLocation(gBufferLightingShader, "gPosition");
@@ -285,6 +289,7 @@ void init()
     if (lightingSphereShader != 0)
         lightingSphereColourLoc = glGetUniformLocation(lightingSphereShader, "colour");
 
+
     //Get textures
     u32 metalTextureID = 0;
     findInMap(&resources->textureIDs, "metal.jpg", &metalTextureID);
@@ -314,8 +319,6 @@ void update(f32 dt)
         0.1f, 100.0f
     );
 
-
-
 }
 
 void renderSkybox()
@@ -326,6 +329,7 @@ void renderSkybox()
     glClear(GL_COLOR_BUFFER_BIT);
 
     glUseProgram(skyboxShader);
+
 
     // Get view matrix without translation
     Mat4 skyboxView = getView(&camera, true);  
@@ -461,10 +465,12 @@ void lightingPass()
         if (lightingQuadraticsLocs[i] != -1) glUniform1f(lightingQuadraticsLocs[i], quadratic);
 
         // making the lights default a little brighter
-        intensity *= 20.0f;
+        intensity *= 15.0f;
         if (lightingIntensityLocs[i] != -1) glUniform1f(lightingIntensityLocs[i], intensity);
         if (lightingRadiiLocs[i] != -1) glUniform1f(lightingRadiiLocs[i], LightingRadii[i]);
     }
+
+
 
     if (debugShowGBuffer && fboShader != 0 && screenQuadMesh)
     {
@@ -524,7 +530,9 @@ void lightingPass()
         updateShaderMVP(lightingSphereShader, { LightingPositions[i], quatIdentity(), v3Scale(v3One,0.1f) }, camera);
         if (lightingSphereColourLoc != -1) glUniform3fv(lightingSphereColourLoc, 1, &LightingColors[i].x);
         draw(sphere, lightingSphereShader,false);
+    
     }
+
 
     // restore default framebuffer
     unbindFramebuffer();
@@ -533,14 +541,16 @@ void render(f32 dt)
 {
     f32 t = (f32)SDL_GetTicks() / 1000.0f;
     updateCoreShaderUBO(t, &camera.pos);
-    renderSkybox();     // This should render normally with depth disabled
+    renderSkybox();     
     bindFramebuffer(&mainFBO);
+   
 
     glDisable(GL_DEPTH_TEST);
     glDepthMask(GL_FALSE);
     glDisable(GL_CULL_FACE);     // fullscreen quad doesn't need culling
 
     glUseProgram(fboShader);
+    if (fboApplyToneMappingLoc != -1) glUniform1i(fboApplyToneMappingLoc, 0); // DISABLE tone-mapping
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, skyboxFBO.texture);
     if (fboScreenTextureLoc != -1)
@@ -550,7 +560,6 @@ void render(f32 dt)
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
     glBindVertexArray(0);
-
     // Restore
     glDepthMask(GL_TRUE);
     glEnable(GL_DEPTH_TEST);
@@ -558,42 +567,42 @@ void render(f32 dt)
     glCullFace(GL_BACK);
     glFrontFace(GL_CCW);
 
-      geometryPass();
+    //first pass to gbuffer to gather required data
+    geometryPass();
+    //second pass to light the scene using gbuffer data
+    lightingPass();
 
-      lightingPass();
-
-       forwardRenderPass();
-
-      if (fboShader != 0)
-      {
-          bindFramebuffer(&postProcessFBO);
-          glDisable(GL_DEPTH_TEST);
-          glDepthMask(GL_FALSE);
-          glDisable(GL_CULL_FACE);
-
-          glClear(GL_COLOR_BUFFER_BIT);
-
-          glUseProgram(fboShader);
-          glActiveTexture(GL_TEXTURE0);
-          glBindTexture(GL_TEXTURE_2D, mainFBO.texture);
-          if (fboScreenTextureLoc != -1)
+    forwardRenderPass();
+    if (fboShader != 0)
+    {
+        bindFramebuffer(&postProcessFBO);
+        glDisable(GL_DEPTH_TEST);
+        glDepthMask(GL_FALSE);
+        glDisable(GL_CULL_FACE);
+        
+        glClear(GL_COLOR_BUFFER_BIT);
+        glUseProgram(fboShader);
+            if (fboApplyToneMappingLoc != -1) glUniform1i(fboApplyToneMappingLoc, 0); // DISABLE tone-mapping
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, mainFBO.texture);
+        if (fboScreenTextureLoc != -1)
             glUniform1i(fboScreenTextureLoc, 0);
 
-          glBindVertexArray(screenQuadMesh->vao);
-          glDrawArrays(GL_TRIANGLES, 0, 6);
-          glBindVertexArray(0);
+        glBindVertexArray(screenQuadMesh->vao);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glBindVertexArray(0);
+        glDepthMask(GL_TRUE);
+        unbindFramebuffer();
+    }
 
-          glDepthMask(GL_TRUE);
-          unbindFramebuffer();
-      }
-
-       glDisable(GL_DEPTH_TEST);
+    glDisable(GL_DEPTH_TEST);
     glDepthMask(GL_FALSE);
     glDisable(GL_CULL_FACE);
 
     glClear(GL_COLOR_BUFFER_BIT);
-
+   
     glUseProgram(fboShader);
+        if (fboApplyToneMappingLoc != -1) glUniform1i(fboApplyToneMappingLoc, 1); // ENABLE tone-mapping for final pass
     glActiveTexture(GL_TEXTURE0);
 
     u32 finalTexture =
@@ -608,6 +617,7 @@ void render(f32 dt)
 
     glBindVertexArray(0);
 
+
     // Restore state for next frame
     glDepthMask(GL_TRUE);
     glEnable(GL_DEPTH_TEST);
@@ -619,7 +629,6 @@ void render(f32 dt)
 void destroy()
 {
     INFO("Cleaning up...");
-
     // Destroy framebuffers
     destroyFramebuffer(&mainFBO);
     destroyFramebuffer(&skyboxFBO);
@@ -637,7 +646,6 @@ void destroy()
         freeMesh(skyboxMesh);
         skyboxMesh = nullptr;
     }
-
     INFO("Cleanup complete!");
 }
 

@@ -53,23 +53,22 @@ void main()
 
 	vec3 viewDir = normalize(CSD.camPos - FragPos);
 
-	// environment reflection (world-space assumed)
+	// environment reflection 
 	vec3 R = reflect(-viewDir, Normal);
 	vec3 envColor = texture(envMap, R).rgb;
 
-	// fresnel base (dielectric)
+	// fresnel base 
 	vec3 F0 = vec3(0.04);
 	float cosV = max(dot(viewDir, Normal), 0.0);
 	vec3 fresnel = fresnelSchlick(cosV, F0);
 
 	// accumulate per-light contributions
-	// shininess controls specular tightness based on smoothness
 	float shininess = mix(8.0, 256.0, clamp(smoothness, 0.0, 1.0));
 	for(int i = 0; i < LIGHTS; ++i)
 	{
 		//work out distance
 
-	float distance = length(lightPositions[i] - FragPos);
+		float distance = length(lightPositions[i] - FragPos);
 
 		if(distance < lightRadii[i])
 		{
@@ -88,7 +87,7 @@ void main()
 
 			float li = lightIntensity[i];
 
-			vec3 diffuse  = diff       * Albedo   * lightColours[i] * attenuation * li;
+			vec3 diffuse  = diff * Albedo * lightColours[i] * attenuation * li;
 		    vec3 specular = specFactor * Specular * lightColours[i] * attenuation * li;
 
 			lighting += diffuse + specular;
@@ -96,7 +95,7 @@ void main()
 
 	}
 
-	// add environment specular contribution (modulated by material specular and fresnel)
+	// add environment specular contribution
 	lighting += envColor * Specular * fresnel * envIntensity * clamp(smoothness, 0.0, 1.0);
 
 	FragColor = vec4(lighting, 1.0);
